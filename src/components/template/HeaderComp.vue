@@ -117,12 +117,15 @@
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Mono:ital,wght@1,700&display=swap");
+
 head {
   margin: 0px;
 }
 
 body {
   margin: 0px;
+  height: 100vh;
+  width: 100vh;
 }
 
 .primeiraParte {
@@ -478,6 +481,120 @@ a {
 }
 a:hover {
   color: #af5811f7;
+}
+@media (max-width: 844px) {
+  body {
+    height: 100%;
+  }
+  .primeiraParte {
+    height: 70vh;
+  }
+  .infoHeader span {
+    font-size: 15px;
+    padding: 0;
+  }
+  .infoHeader {
+    margin: 0 0 0 10%;
+    justify-content: space-between;
+  }
+  .logosul {
+    height: 70px;
+    width: 70px;
+    margin: 0;
+  }
+  .info1 {
+    height: 250px;
+    width: 40vh;
+    margin: 25% 0% 0 7%;
+  }
+  .textInfo1 {
+    font-size: 23px;
+    padding: 20% 0 0 0;
+    line-height: 45px;
+  }
+  .segundaParte {
+    width: 105vh;
+  }
+  .leftSegundaParte {
+    margin: 5% 0 0 0;
+    padding: 0px;
+    height: 300px;
+  }
+  .rightSegundaParte {
+    margin: 0 0 0 10%;
+    padding: 0;
+  }
+  .form1,
+  .form2,
+  .form3,
+  .v-line {
+    display: none;
+  }
+
+  .segundotextoSegundaParte,
+  .segundotituloSegundaParte {
+    margin: 5% 5% 0 0;
+  }
+  .parceira {
+    width: 100vh;
+    height: 200px;
+  }
+  .tituloParceira {
+    margin: 0 54% 0 0;
+    font-size: 25px;
+    padding: 7% 0 0 0;
+  }
+  .segundaParte {
+    display: block;
+    height: 40vh;
+  }
+  .form1 {
+    margin: 0;
+    padding: 0;
+  }
+  .tituloSegundaParte,
+  .segundotituloSegundaParte {
+    font-size: 20px;
+    margin: 0 0 0 10%;
+  }
+  .textoSegundaParte,
+  .segundotextoSegundaParte {
+    font-size: 10px;
+    margin: 0;
+  }
+  .terceiraParte {
+    display: block;
+    height: 100vh;
+  }
+  .cotacao {
+    font-size: 27px;
+    margin: 5% 0 0 0;
+  }
+  .hrcotacao {
+    width: 300px;
+    margin: 0 0 0 13%;
+  }
+  .tituloFormulario {
+    font-size: 40px;
+    white-space: nowrap;
+    padding: 25px 0px 0 0;
+    text-align: center;
+  }
+  .formulario {
+    margin: 0;
+  }
+  .input {
+    width: 300px;
+    margin: 0 0% 0 10%;
+  }
+  label {
+    font-size: 18px;
+    margin: 0 0 0 9%;
+  }
+  hr {
+    width: 25vh;
+    margin: 5% 0 0 17%;
+  }
 }
 </style>
 <script>

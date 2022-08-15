@@ -155,6 +155,32 @@ svg:hover .tooltip {
   color: black;
   box-shadow: 0 5px 5px lightgrey;
 }
+@media (max-width: 844px) {
+  .footer {
+    width: 100vh;
+    height: 95vh;
+    margin: 0;
+    display: block;
+    padding: 10px 0 0 0;
+  }
+  .col-1 {
+    margin: 3% 0 0 10%;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .col-2 {
+    margin: 5% 0 0 10%;
+    font-size: 13px;
+  }
+  img {
+    width: 100px;
+    height: 150px;
+    margin: 4% 0 0 0;
+  }
+  .uiverse {
+    display: none;
+  }
+}
 </style>
 
 <script>
