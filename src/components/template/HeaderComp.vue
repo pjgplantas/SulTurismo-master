@@ -5,13 +5,13 @@
         <img class="logosul" src="src/imagens/logoSulTurismo.png" />
       </div>
       <div class="infoHeader">
-        <div>
+        <div @click="scrollTo">
           <span>Quem somos</span>
         </div>
-        <div>
+        <div @click="scrollToForm">
           <span>Nossos serviços</span>
         </div>
-        <div>
+        <div @click="scrollToFooter">
           <span>Contato</span>
         </div>
       </div>
@@ -615,6 +615,30 @@ export default {
     },
     scrollListener: function (e) {
       this.visible = window.scrollY > -550;
+    },
+    scrollTo: function () {
+      this.intervalId = setInterval(() => {
+        if (window.pageYOffset === 0) {
+          clearInterval(this.intervalId);
+        }
+        window.scroll(0, window.pageYOffset + 980);
+      }, 20);
+    },
+    scrollToForm: function () {
+      this.intervalId = setInterval(() => {
+        if (window.pageYOffset === 0) {
+          clearInterval(this.intervalId);
+        }
+        window.scroll(0, window.pageYOffset + 1980);
+      }, 20);
+    },
+    scrollToFooter: function () {
+      this.intervalId = setInterval(() => {
+        if (window.pageYOffset === 0) {
+          clearInterval(this.intervalId);
+        }
+        window.scroll(0, window.pageYOffset + 2500);
+      }, 50);
     },
   },
   mounted: function () {
