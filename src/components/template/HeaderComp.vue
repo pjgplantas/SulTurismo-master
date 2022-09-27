@@ -79,36 +79,46 @@
       <div class="tituloFormulario">Pedir um orçamento</div>
       <br />
       <div class="group">
-        <input required="" type="text" class="input" />
+        <input required="" type="text" class="input" v-model="forms.nome" />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>NOME:</label> <br />
       </div>
       <div class="group">
-        <input required="" type="text" class="input" />
+        <input
+          required=""
+          type="text"
+          class="input"
+          v-model="forms.cepdestino"
+        />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>CEP DE DESTINO:</label><br />
       </div>
       <div class="group">
-        <input required="" type="text" class="input" />
+        <input
+          required=""
+          type="text"
+          class="input"
+          v-model="forms.ceporigem"
+        />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>CEP DE ORIGEM:</label><br />
       </div>
       <div class="group">
-        <input required="" type="number" class="input" />
+        <input required="" type="number" class="input" v-model="forms.qtd" />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>QUANTIDADE DE PESSOAS:</label><br />
       </div>
       <div class="group">
-        <input required="" type="" class="input" />
+        <input required="" type="" class="input" v-model="forms.telefone" />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>TELEFONE CONTATO:</label>
       </div>
-      <button>
+      <button @click="forms">
         <span>Enviar</span>
       </button>
     </div>
@@ -598,10 +608,12 @@ a:hover {
 }
 </style>
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
       visible: true,
+      forms = {}
     };
   },
   methods: {
@@ -640,6 +652,14 @@ export default {
         window.scroll(0, window.pageYOffset + 2500);
       }, 50);
     },
+    async forms() {
+        try {
+          await axios.post('http://localhost:8000/formulario/', this.forms)
+        } catch(e) {
+          console.log(e)
+          alert("algo de errado não está certo.")
+        }
+    }
   },
   mounted: function () {
     window.addEventListener("scroll", this.scrollListener);
