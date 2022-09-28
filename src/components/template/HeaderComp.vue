@@ -79,7 +79,12 @@
       <div class="tituloFormulario">Pedir um orçamento</div>
       <br />
       <div class="group">
-        <input required="" type="text" class="input" v-model="forms.nome" />
+        <input
+          required=""
+          type="text"
+          class="input"
+          v-model="formulario.nome"
+        />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>NOME:</label> <br />
@@ -89,7 +94,7 @@
           required=""
           type="text"
           class="input"
-          v-model="forms.cepdestino"
+          v-model="formulario.cepdestino"
         />
         <span class="highlight"></span>
         <span class="bar"></span>
@@ -100,25 +105,35 @@
           required=""
           type="text"
           class="input"
-          v-model="forms.ceporigem"
+          v-model="formulario.ceporigem"
         />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>CEP DE ORIGEM:</label><br />
       </div>
       <div class="group">
-        <input required="" type="number" class="input" v-model="forms.qtd" />
+        <input
+          required=""
+          type="number"
+          class="input"
+          v-model="formulario.qtd"
+        />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>QUANTIDADE DE PESSOAS:</label><br />
       </div>
       <div class="group">
-        <input required="" type="" class="input" v-model="forms.telefone" />
+        <input
+          required=""
+          type=""
+          class="input"
+          v-model="formulario.telefone"
+        />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>TELEFONE CONTATO:</label>
       </div>
-      <button @click="forms">
+      <button @click.prevent="registerFormulario">
         <span>Enviar</span>
       </button>
     </div>
@@ -608,12 +623,12 @@ a:hover {
 }
 </style>
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data() {
     return {
       visible: true,
-      forms = {}
+      formulario: {},
     };
   },
   methods: {
@@ -652,14 +667,17 @@ export default {
         window.scroll(0, window.pageYOffset + 2500);
       }, 50);
     },
-    async forms() {
-        try {
-          await axios.post('http://localhost:8000/formulario/', this.forms)
-        } catch(e) {
-          console.log(e)
-          alert("algo de errado não está certo.")
-        }
-    }
+    async registerFormulario() {
+      try {
+        const forms = await axios.post(
+          "http://localhost:8000/formulario/",
+          this.formulario
+        );
+      } catch (e) {
+        console.log(e);
+        alert("algo de errado não está certo.");
+      }
+    },
   },
   mounted: function () {
     window.addEventListener("scroll", this.scrollListener);
